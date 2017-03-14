@@ -132,16 +132,16 @@ class ShowAllImageController: UICollectionViewController, UICollectionViewDelega
         return UIStatusBarStyle.lightContent
     }
     
-    convenience required init() {
-        let flowLayout = UICollectionViewFlowLayout()
-        
-        flowLayout.minimumLineSpacing = 1
-        flowLayout.minimumInteritemSpacing = 1
-        flowLayout.scrollDirection = .vertical
-        
-        
-        self.init(collectionViewLayout: flowLayout)
-    }
+//    convenience required init() {
+//        let flowLayout = UICollectionViewFlowLayout()
+//        
+//        flowLayout.minimumLineSpacing = 1
+//        flowLayout.minimumInteritemSpacing = 1
+//        flowLayout.scrollDirection = .vertical
+//        
+//        
+//        self.init(collectionViewLayout: flowLayout)
+//    }
     
     func setRightBarButtonItemTitle(){
        navigationItem.rightBarButtonItem?.title = "(\(selectedAssets.count)/\(maxNumber))\(NSLocalizedString("下一步", comment: ""))"
@@ -236,7 +236,7 @@ class ShowAllImageController: UICollectionViewController, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellW = SCREEN_W / 3 - 2
+        let cellW = (SCREEN_W - 2) / 3
         let cellH = cellW
         return CGSize(width: cellW, height: cellH)
     }
@@ -286,7 +286,6 @@ class ShowAllImageController: UICollectionViewController, UICollectionViewDelega
                 }
             }
             selectView.isHidden = true
-
         }
 
         

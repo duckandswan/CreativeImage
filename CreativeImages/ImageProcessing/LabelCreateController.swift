@@ -30,7 +30,7 @@ class LabelCreateController: UIViewController,UITextFieldDelegate {
 //        self.navigationController?.navigationBarHidden = false
 //        self.navigationController?.navigationBar.hidden = false
 //        navigationController?.navigationBar.translucent = false
-        navigationController?.isNavigationBarHidden = true
+//        navigationController?.isNavigationBarHidden = true
         if isEdited == false {
             b2.isHidden = true
         }else{
@@ -51,8 +51,8 @@ class LabelCreateController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btn_back@3x"), style: UIBarButtonItemStyle.Plain, target: self, action: "back")
-        
-        
+        navigationController?.isNavigationBarHidden = true
+        automaticallyAdjustsScrollViewInsets = false
 
         // Do any additional setup after loading the view.
         
@@ -91,12 +91,12 @@ class LabelCreateController: UIViewController,UITextFieldDelegate {
         let tS:CGFloat = sH/30
         let itS:CGFloat = 20
         
-        let barV = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_W, height: barH))
-        barV.backgroundColor = UIColor.black
-        view.addSubview(barV)
+//        let barV = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_W, height: barH))
+//        barV.backgroundColor = UIColor.black
+//        view.addSubview(barV)
         
         let backButton = UIButton(frame: CGRect(x: 0, y: (barH - backH)/2, width: backW, height: backH))
-        backButton.setImage(UIImage(named: "btn_back@3x"), for: UIControlState())
+        backButton.setImage(UIImage(named: "btn_back"), for: UIControlState())
         backButton.addTarget(self, action: #selector(LabelCreateController.back), for: UIControlEvents.touchUpInside)
         view.addSubview(backButton)
         
@@ -200,7 +200,7 @@ class LabelCreateController: UIViewController,UITextFieldDelegate {
     }
     
     func back() {
-        navigationController?.popViewController(animated: false)
+        _ = navigationController?.popViewController(animated: false)
     }
     
     func complete(){
@@ -215,12 +215,12 @@ class LabelCreateController: UIViewController,UITextFieldDelegate {
         }
         
         closeKeyboard()
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func delete(){
         delegate!.deleteLabel()
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {

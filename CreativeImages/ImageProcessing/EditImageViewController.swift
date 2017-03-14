@@ -19,7 +19,7 @@ func findIndex<T: Equatable>(_ array: [T], valueToFind: T) -> Int? {
     return nil
 }
 
-class EditImageViewController: UIViewController{
+class EditImageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
 
     weak var showAllImageController:ShowAllImageController!
     
@@ -28,7 +28,8 @@ class EditImageViewController: UIViewController{
     var editedImgArr:[UIImage] = []
     var needToCutImageViewArr:[MyImageView] = []
     
-    var selectedImageCollectionView: MySelectedImageCollectionView!
+//    var selectedImageCollectionView: MySelectedImageCollectionView!
+    var selectedImageCollectionView: UICollectionView!
     var editV:UIView!
     var imgV:MyImageView!
     var stickerCollectionView:MyStickerCollectionView!
@@ -126,10 +127,21 @@ class EditImageViewController: UIViewController{
         let stW:CGFloat = SCREEN_W
         let stH:CGFloat = SCREEN_H/6
         
-        let aView = UIView(frame: CGRect(x: 0, y: -1, width: SCREEN_W, height: 1))
-        view.addSubview(aView)
+//        let aView = UIView(frame: CGRect(x: 0, y: -1, width: SCREEN_W, height: 1))
+//        view.addSubview(aView)
         
-        selectedImageCollectionView = MySelectedImageCollectionView(frame: CGRect(x: sX, y: sY, width: sW, height: sH), editImageViewController: self)
+//        selectedImageCollectionView = MySelectedImageCollectionView(frame: CGRect(x: sX, y: sY, width: sW, height: sH), editImageViewController: self)
+        let flowLayout = UICollectionViewFlowLayout()
+        
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.scrollDirection = .horizontal
+        selectedImageCollectionView = UICollectionView(frame: CGRect(x: sX, y: sY, width: sW, height: sH), collectionViewLayout: flowLayout)
+//        selectedImageCollectionView = UICollectionView(frame: CGRect(x: sX, y: sY, width: sW, height: sH))
+//        selectedImageCollectionView.collectionViewLayout = flowLayout
+        selectedImageCollectionView.dataSource = self
+        selectedImageCollectionView.delegate = self
+        selectedImageCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell2")
         view.addSubview(selectedImageCollectionView)
         
         
@@ -667,6 +679,79 @@ class EditImageViewController: UIViewController{
         labelController.selectedImg = imgV.image
         labelController.isEdited = true
         navigationController?.pushViewController(labelController, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return selectedAssets.count == 9 ? 9 : selectedAssets.count + 1
+    }
+    
+    var selectedindex = 0
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell2", for: indexPath)
+        
+        if cell.contentView.viewWithTag(100) == nil {
+            
+            let imageview = UIImageView(frame: cell.contentView.bounds)
+            imageview.tag = 100
+            imageview.isUserInteractionEnabled = true
+            imageview.contentMode = UIViewContentMode.scaleAspectFill
+            imageview.clipsToBounds = true
+            
+            cell.contentView.addSubview(imageview)
+            
+            //            cell.selectedBackgroundView = CustomCellBackground(frame: cell.contentView.bounds)
+            //            cell.backgroundColor = UIColor.whiteColor()
+            
+            
+        }
+        let imageview = cell.contentView.viewWithTag(100) as! UIImageView
+        
+        if indexPath.row == selectedAssets.count {
+            imageview.image = UIImage(named: "btn_add_photo")
+        }else{
+            let asset = selectedAssets[indexPath.row]
+            showAllImageController.setLowQualityImageView(imageview, asset: asset)
+        }
+        
+        if indexPath.row == selectedAssets.count {
+            cell.backgroundColor = UIColor.clear
+        }else {
+            cell.backgroundColor = UIColor.white
+        }
+        
+        if selectedindex == indexPath.row {
+            cell.contentView.alpha = 0.5
+        }else{
+            cell.contentView.alpha = 1
+        }
+        
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellW = collectionView.frame.size.width / 4.7
+        let cellH = cellW
+        
+        return CGSize(width: cellW, height: cellH)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == selectedAssets.count {
+            back()
+            return
+        }
+        
+        if selectedindex == indexPath.row{
+            return
+        }
+        
+        selectedindex = indexPath.row
+        collectionView.reloadSections(IndexSet(integer: 0))
+        
+        showImageViewAt(indexPath.row)
     }
     
     
