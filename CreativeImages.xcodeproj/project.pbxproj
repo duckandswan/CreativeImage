@@ -12,18 +12,15 @@
 		E44D8C5F1E77771000C0D5B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44D8C5D1E77771000C0D5B3 /* Main.storyboard */; };
 		E44D8C611E77771000C0D5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44D8C601E77771000C0D5B3 /* Assets.xcassets */; };
 		E44D8C641E77771000C0D5B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44D8C621E77771000C0D5B3 /* LaunchScreen.storyboard */; };
-		E44D8C6F1E77771000C0D5B3 /* CreativeImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C6E1E77771000C0D5B3 /* CreativeImagesTests.swift */; };
+		E44D8CBF1E77774300C0D5B3 /* ConfirmCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C7A1E77774300C0D5B3 /* ConfirmCollectionView.swift */; };
+		E44D8CC01E77774300C0D5B3 /* CutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C7B1E77774300C0D5B3 /* CutViewController.swift */; };
+		E44D8CC11E77774300C0D5B3 /* DistributeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C7C1E77774300C0D5B3 /* DistributeController.swift */; };
+		E44D8CC21E77774300C0D5B3 /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C7D1E77774300C0D5B3 /* EditImageViewController.swift */; };
+		E44D8CC31E77774300C0D5B3 /* LabelCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C7E1E77774300C0D5B3 /* LabelCreateController.swift */; };
+		E44D8CC41E77774300C0D5B3 /* MySelectedImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C7F1E77774300C0D5B3 /* MySelectedImageCollectionView.swift */; };
+		E44D8CC51E77774300C0D5B3 /* MyStickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C801E77774300C0D5B3 /* MyStickerCollectionView.swift */; };
+		E44D8CC61E77774300C0D5B3 /* ShowAllImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D8C811E77774300C0D5B3 /* ShowAllImageController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E44D8C6B1E77771000C0D5B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E44D8C4E1E77771000C0D5B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E44D8C551E77771000C0D5B3;
-			remoteInfo = CreativeImages;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E44D8C561E77771000C0D5B3 /* CreativeImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,20 +30,18 @@
 		E44D8C601E77771000C0D5B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E44D8C631E77771000C0D5B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E44D8C651E77771000C0D5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E44D8C6A1E77771000C0D5B3 /* CreativeImagesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CreativeImagesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E44D8C6E1E77771000C0D5B3 /* CreativeImagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreativeImagesTests.swift; sourceTree = "<group>"; };
-		E44D8C701E77771000C0D5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E44D8C7A1E77774300C0D5B3 /* ConfirmCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmCollectionView.swift; sourceTree = "<group>"; };
+		E44D8C7B1E77774300C0D5B3 /* CutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CutViewController.swift; sourceTree = "<group>"; };
+		E44D8C7C1E77774300C0D5B3 /* DistributeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributeController.swift; sourceTree = "<group>"; };
+		E44D8C7D1E77774300C0D5B3 /* EditImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageViewController.swift; sourceTree = "<group>"; };
+		E44D8C7E1E77774300C0D5B3 /* LabelCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCreateController.swift; sourceTree = "<group>"; };
+		E44D8C7F1E77774300C0D5B3 /* MySelectedImageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySelectedImageCollectionView.swift; sourceTree = "<group>"; };
+		E44D8C801E77774300C0D5B3 /* MyStickerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStickerCollectionView.swift; sourceTree = "<group>"; };
+		E44D8C811E77774300C0D5B3 /* ShowAllImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAllImageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E44D8C531E77771000C0D5B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E44D8C671E77771000C0D5B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				E44D8C581E77771000C0D5B3 /* CreativeImages */,
-				E44D8C6D1E77771000C0D5B3 /* CreativeImagesTests */,
 				E44D8C571E77771000C0D5B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				E44D8C561E77771000C0D5B3 /* CreativeImages.app */,
-				E44D8C6A1E77771000C0D5B3 /* CreativeImagesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +70,7 @@
 		E44D8C581E77771000C0D5B3 /* CreativeImages */ = {
 			isa = PBXGroup;
 			children = (
+				E44D8C791E77774300C0D5B3 /* ImageProcessing */,
 				E44D8C591E77771000C0D5B3 /* AppDelegate.swift */,
 				E44D8C5B1E77771000C0D5B3 /* ViewController.swift */,
 				E44D8C5D1E77771000C0D5B3 /* Main.storyboard */,
@@ -87,13 +81,19 @@
 			path = CreativeImages;
 			sourceTree = "<group>";
 		};
-		E44D8C6D1E77771000C0D5B3 /* CreativeImagesTests */ = {
+		E44D8C791E77774300C0D5B3 /* ImageProcessing */ = {
 			isa = PBXGroup;
 			children = (
-				E44D8C6E1E77771000C0D5B3 /* CreativeImagesTests.swift */,
-				E44D8C701E77771000C0D5B3 /* Info.plist */,
+				E44D8C7A1E77774300C0D5B3 /* ConfirmCollectionView.swift */,
+				E44D8C7B1E77774300C0D5B3 /* CutViewController.swift */,
+				E44D8C7C1E77774300C0D5B3 /* DistributeController.swift */,
+				E44D8C7D1E77774300C0D5B3 /* EditImageViewController.swift */,
+				E44D8C7E1E77774300C0D5B3 /* LabelCreateController.swift */,
+				E44D8C7F1E77774300C0D5B3 /* MySelectedImageCollectionView.swift */,
+				E44D8C801E77774300C0D5B3 /* MyStickerCollectionView.swift */,
+				E44D8C811E77774300C0D5B3 /* ShowAllImageController.swift */,
 			);
-			path = CreativeImagesTests;
+			path = ImageProcessing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,24 +116,6 @@
 			productReference = E44D8C561E77771000C0D5B3 /* CreativeImages.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E44D8C691E77771000C0D5B3 /* CreativeImagesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E44D8C761E77771000C0D5B3 /* Build configuration list for PBXNativeTarget "CreativeImagesTests" */;
-			buildPhases = (
-				E44D8C661E77771000C0D5B3 /* Sources */,
-				E44D8C671E77771000C0D5B3 /* Frameworks */,
-				E44D8C681E77771000C0D5B3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E44D8C6C1E77771000C0D5B3 /* PBXTargetDependency */,
-			);
-			name = CreativeImagesTests;
-			productName = CreativeImagesTests;
-			productReference = E44D8C6A1E77771000C0D5B3 /* CreativeImagesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,12 +128,9 @@
 				TargetAttributes = {
 					E44D8C551E77771000C0D5B3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = A69362A68E;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
-					};
-					E44D8C691E77771000C0D5B3 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = E44D8C551E77771000C0D5B3;
 					};
 				};
 			};
@@ -169,7 +148,6 @@
 			projectRoot = "";
 			targets = (
 				E44D8C551E77771000C0D5B3 /* CreativeImages */,
-				E44D8C691E77771000C0D5B3 /* CreativeImagesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -185,13 +163,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E44D8C681E77771000C0D5B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -199,28 +170,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44D8CC11E77774300C0D5B3 /* DistributeController.swift in Sources */,
 				E44D8C5C1E77771000C0D5B3 /* ViewController.swift in Sources */,
+				E44D8CC51E77774300C0D5B3 /* MyStickerCollectionView.swift in Sources */,
+				E44D8CC21E77774300C0D5B3 /* EditImageViewController.swift in Sources */,
+				E44D8CC61E77774300C0D5B3 /* ShowAllImageController.swift in Sources */,
+				E44D8CC31E77774300C0D5B3 /* LabelCreateController.swift in Sources */,
+				E44D8CC01E77774300C0D5B3 /* CutViewController.swift in Sources */,
+				E44D8CBF1E77774300C0D5B3 /* ConfirmCollectionView.swift in Sources */,
 				E44D8C5A1E77771000C0D5B3 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E44D8C661E77771000C0D5B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E44D8C6F1E77771000C0D5B3 /* CreativeImagesTests.swift in Sources */,
+				E44D8CC41E77774300C0D5B3 /* MySelectedImageCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E44D8C6C1E77771000C0D5B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E44D8C551E77771000C0D5B3 /* CreativeImages */;
-			targetProxy = E44D8C6B1E77771000C0D5B3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E44D8C5D1E77771000C0D5B3 /* Main.storyboard */ = {
@@ -337,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A69362A68E;
 				INFOPLIST_FILE = CreativeImages/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fxdz.CreativeImages;
@@ -349,39 +313,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A69362A68E;
 				INFOPLIST_FILE = CreativeImages/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fxdz.CreativeImages;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		E44D8C771E77771000C0D5B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = CreativeImagesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fxdz.CreativeImagesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CreativeImages.app/CreativeImages";
-			};
-			name = Debug;
-		};
-		E44D8C781E77771000C0D5B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = CreativeImagesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fxdz.CreativeImagesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CreativeImages.app/CreativeImages";
 			};
 			name = Release;
 		};
@@ -404,14 +341,7 @@
 				E44D8C751E77771000C0D5B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		E44D8C761E77771000C0D5B3 /* Build configuration list for PBXNativeTarget "CreativeImagesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E44D8C771E77771000C0D5B3 /* Debug */,
-				E44D8C781E77771000C0D5B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
