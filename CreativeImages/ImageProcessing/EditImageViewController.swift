@@ -32,7 +32,8 @@ class EditImageViewController: UIViewController, UICollectionViewDataSource, UIC
     var selectedImageCollectionView: UICollectionView!
     var editV:UIView!
     var imgV:MyImageView!
-    var stickerCollectionView:MyStickerCollectionView!
+//    var stickerCollectionView:MyStickerCollectionView!
+    var stickerCollectionView:UICollectionView!
     var label:UILabel!
     
     var labelController:LabelCreateController!
@@ -210,16 +211,21 @@ class EditImageViewController: UIViewController, UICollectionViewDataSource, UIC
         let lineView = UIView(frame: CGRect(x: (SCREEN_W - 1) / 2, y: SCREEN_H - b3H + 5, width: 1, height: b3H - 10))
         lineView.backgroundColor = UIColor(red: 239/255.0, green: 243/255.0, blue: 244/255.0, alpha: 1)
         view.addSubview(lineView)
+    
+        let flowLayout2 = UICollectionViewFlowLayout()
         
-        stickerCollectionView = MyStickerCollectionView(frame: CGRect(x: 0, y: SCREEN_H - stH - b3H, width: stW, height: stH), editImageViewController: self)
+        flowLayout2.minimumLineSpacing = 10
+        flowLayout2.minimumInteritemSpacing = 10
+        flowLayout2.scrollDirection = .horizontal
+//        stickerCollectionView = MyStickerCollectionView(frame: CGRect(x: 0, y: SCREEN_H - stH - b3H, width: stW, height: stH), editImageViewController: self)
+        stickerCollectionView = UICollectionView(frame: CGRect(x: 0, y: SCREEN_H - stH - b3H, width: stW, height: stH), collectionViewLayout: flowLayout2)
+        stickerCollectionView.dataSource = self
+        stickerCollectionView.delegate = self
+        stickerCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell3")
         stickerCollectionView.isHidden  = false
         view.addSubview(stickerCollectionView)
         
-        
-        
     }
-
-
     
     func back(){
         _ = self.navigationController?.popToViewController(showAllImageController, animated: true)
@@ -683,75 +689,113 @@ class EditImageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return selectedAssets.count == 9 ? 9 : selectedAssets.count + 1
+        if collectionView == selectedImageCollectionView {
+            return selectedAssets.count == 9 ? 9 : selectedAssets.count + 1
+        }else{
+            return stickerArr.count
+        }
+        
     }
     
     var selectedindex = 0
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell2", for: indexPath)
-        
-        if cell.contentView.viewWithTag(100) == nil {
+        if collectionView == selectedImageCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell2", for: indexPath)
             
-            let imageview = UIImageView(frame: cell.contentView.bounds)
-            imageview.tag = 100
-            imageview.isUserInteractionEnabled = true
-            imageview.contentMode = UIViewContentMode.scaleAspectFill
-            imageview.clipsToBounds = true
+            if cell.contentView.viewWithTag(100) == nil {
+                
+                let imageview = UIImageView(frame: cell.contentView.bounds)
+                imageview.tag = 100
+                imageview.isUserInteractionEnabled = true
+                imageview.contentMode = UIViewContentMode.scaleAspectFill
+                imageview.clipsToBounds = true
+                
+                cell.contentView.addSubview(imageview)
+                
+                //            cell.selectedBackgroundView = CustomCellBackground(frame: cell.contentView.bounds)
+                //            cell.backgroundColor = UIColor.whiteColor()
+                
+                
+            }
+            let imageview = cell.contentView.viewWithTag(100) as! UIImageView
             
-            cell.contentView.addSubview(imageview)
+            if indexPath.row == selectedAssets.count {
+                imageview.image = UIImage(named: "btn_add_photo")
+            }else{
+                let asset = selectedAssets[indexPath.row]
+                showAllImageController.setLowQualityImageView(imageview, asset: asset)
+            }
             
-            //            cell.selectedBackgroundView = CustomCellBackground(frame: cell.contentView.bounds)
-            //            cell.backgroundColor = UIColor.whiteColor()
+            if indexPath.row == selectedAssets.count {
+                cell.backgroundColor = UIColor.clear
+            }else {
+                cell.backgroundColor = UIColor.white
+            }
+            
+            if selectedindex == indexPath.row {
+                cell.contentView.alpha = 0.5
+            }else{
+                cell.contentView.alpha = 1
+            }
             
             
-        }
-        let imageview = cell.contentView.viewWithTag(100) as! UIImageView
-        
-        if indexPath.row == selectedAssets.count {
-            imageview.image = UIImage(named: "btn_add_photo")
+            return cell
         }else{
-            let asset = selectedAssets[indexPath.row]
-            showAllImageController.setLowQualityImageView(imageview, asset: asset)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell3", for: indexPath)
+            
+            // Configure the cell
+            if cell.contentView.viewWithTag(100) == nil {
+                
+                let imageview = UIImageView(frame: cell.contentView.bounds)
+                imageview.tag = 100
+                imageview.isUserInteractionEnabled = true
+                imageview.contentMode = UIViewContentMode.scaleToFill
+                cell.contentView.addSubview(imageview)
+                cell.contentView.backgroundColor = UIColor.gray
+                
+            }
+            let imageview = cell.contentView.viewWithTag(100) as! UIImageView
+            imageview.image = stickerArr[indexPath.row]
+            
+            return cell
         }
-        
-        if indexPath.row == selectedAssets.count {
-            cell.backgroundColor = UIColor.clear
-        }else {
-            cell.backgroundColor = UIColor.white
-        }
-        
-        if selectedindex == indexPath.row {
-            cell.contentView.alpha = 0.5
-        }else{
-            cell.contentView.alpha = 1
-        }
-        
-        
-        return cell
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellW = collectionView.frame.size.width / 4.7
-        let cellH = cellW
+        if collectionView == selectedImageCollectionView {
+            let cellW = collectionView.frame.size.width / 4.7
+            let cellH = cellW
+            
+            return CGSize(width: cellW, height: cellH)
+        }else{
+            let cellW = collectionView.frame.size.width / 5
+            let cellH = cellW
+            return CGSize(width: cellW, height: cellH)
+        }
         
-        return CGSize(width: cellW, height: cellH)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == selectedAssets.count {
-            back()
-            return
+        if collectionView == selectedImageCollectionView {
+            if indexPath.row == selectedAssets.count {
+                back()
+                return
+            }
+            
+            if selectedindex == indexPath.row{
+                return
+            }
+            
+            selectedindex = indexPath.row
+            collectionView.reloadSections(IndexSet(integer: 0))
+            
+            showImageViewAt(indexPath.row)
+        }else{
+            addStickerAtIndex(indexPath.row)
         }
         
-        if selectedindex == indexPath.row{
-            return
-        }
-        
-        selectedindex = indexPath.row
-        collectionView.reloadSections(IndexSet(integer: 0))
-        
-        showImageViewAt(indexPath.row)
     }
     
     

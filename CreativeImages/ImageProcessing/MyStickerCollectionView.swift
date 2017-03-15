@@ -9,113 +9,113 @@
 import UIKit
 import Photos
 
-class StickerController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
-//    var stickerArr:[UIImage] = []
-    weak var editImageViewController:EditImageViewController!
-    
-    let mimL:CGFloat = 50
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-//        print("stickerArr.count:\(stickerArr.count)")
-        return editImageViewController.stickerArr.count
-        
-//        return editImageViewController.stickerModels.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell3", for: indexPath) 
-        
-        // Configure the cell
-        if cell.contentView.viewWithTag(100) == nil {
-            
-            let imageview = UIImageView(frame: cell.contentView.bounds)
-            imageview.tag = 100
-            imageview.isUserInteractionEnabled = true
-            imageview.contentMode = UIViewContentMode.scaleToFill
-            cell.contentView.addSubview(imageview)
-            cell.contentView.backgroundColor = UIColor.gray
-            
-        }
-        let imageview = cell.contentView.viewWithTag(100) as! UIImageView
-        imageview.image = editImageViewController.stickerArr[indexPath.row]
-        
-
-        
-        return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        editImageViewController.addStickerAtIndex(indexPath.row)
-        
-    }
-    
-    
-    
-}
-
-class MyStickerCollectionView: UICollectionView {
-    
-    var stickerController:StickerController!
-    init(frame: CGRect, editImageViewController:EditImageViewController) {
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        
-        
-        
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
-        flowLayout.sectionInset =
-            UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        flowLayout.scrollDirection = UICollectionViewScrollDirection.horizontal
-        let cellW = frame.size.width / 5
-        let cellH = cellW
-        flowLayout.itemSize = CGSize(width: cellW, height: cellH)
-        
-        super.init(frame: frame, collectionViewLayout: flowLayout)
-        
-        stickerController = StickerController()
-        stickerController.editImageViewController = editImageViewController
-
-        self.dataSource = stickerController
-        self.delegate = stickerController
-        
-//        self.dataSource = editImageViewController
-//        self.delegate = editImageViewController
-        
-        
-        
-        self.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell3")
-        
-        self.backgroundColor = UIColor.clear
-//        self.backgroundColor = UIColor(red: 239/255.0, green: 243/255.0, blue: 244/255.0, alpha: 1)
-     
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-}
+//class StickerController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
+////    var stickerArr:[UIImage] = []
+//    weak var editImageViewController:EditImageViewController!
+//    
+//    let mimL:CGFloat = 50
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        // Uncomment the following line to preserve selection between presentations
+//        // self.clearsSelectionOnViewWillAppear = false
+//        
+//        
+//
+//        // Do any additional setup after loading the view.
+//    }
+//    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//    
+//    
+//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        
+////        print("stickerArr.count:\(stickerArr.count)")
+//        return editImageViewController.stickerArr.count
+//        
+////        return editImageViewController.stickerModels.count
+//    }
+//    
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell3", for: indexPath) 
+//        
+//        // Configure the cell
+//        if cell.contentView.viewWithTag(100) == nil {
+//            
+//            let imageview = UIImageView(frame: cell.contentView.bounds)
+//            imageview.tag = 100
+//            imageview.isUserInteractionEnabled = true
+//            imageview.contentMode = UIViewContentMode.scaleToFill
+//            cell.contentView.addSubview(imageview)
+//            cell.contentView.backgroundColor = UIColor.gray
+//            
+//        }
+//        let imageview = cell.contentView.viewWithTag(100) as! UIImageView
+//        imageview.image = editImageViewController.stickerArr[indexPath.row]
+//        
+//
+//        
+//        return cell
+//    }
+//    
+//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        
+//        editImageViewController.addStickerAtIndex(indexPath.row)
+//        
+//    }
+//    
+//    
+//    
+//}
+//
+//class MyStickerCollectionView: UICollectionView {
+//    
+//    var stickerController:StickerController!
+//    init(frame: CGRect, editImageViewController:EditImageViewController) {
+//        
+//        let flowLayout = UICollectionViewFlowLayout()
+//        
+//        
+//        
+//        flowLayout.minimumLineSpacing = 10
+//        flowLayout.minimumInteritemSpacing = 10
+//        flowLayout.sectionInset =
+//            UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+//        flowLayout.scrollDirection = UICollectionViewScrollDirection.horizontal
+//        let cellW = frame.size.width / 5
+//        let cellH = cellW
+//        flowLayout.itemSize = CGSize(width: cellW, height: cellH)
+//        
+//        super.init(frame: frame, collectionViewLayout: flowLayout)
+//        
+//        stickerController = StickerController()
+//        stickerController.editImageViewController = editImageViewController
+//
+//        self.dataSource = stickerController
+//        self.delegate = stickerController
+//        
+////        self.dataSource = editImageViewController
+////        self.delegate = editImageViewController
+//        
+//        
+//        
+//        self.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell3")
+//        
+//        self.backgroundColor = UIColor.clear
+////        self.backgroundColor = UIColor(red: 239/255.0, green: 243/255.0, blue: 244/255.0, alpha: 1)
+//     
+//        
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//}
 
 class MyImageView:UIImageView{
     var stikerViewArr:[MyStickerView] = []
