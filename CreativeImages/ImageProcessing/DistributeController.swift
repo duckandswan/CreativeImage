@@ -37,10 +37,6 @@ class DistributeController: UIViewController,UITextViewDelegate,UIScrollViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.none)
-        
-        //        view.backgroundColor = UIColor(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, alpha: 1.0)
-        
         let scrollView = UIScrollView(frame: view.bounds)
         scrollView.backgroundColor = UIColor(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, alpha: 1.0)
         scrollView.alwaysBounceVertical = true
@@ -175,9 +171,9 @@ class DistributeController: UIViewController,UITextViewDelegate,UIScrollViewDele
     
     func back() {
         if editImageViewController!.editedImgArr.count == 0 {
-            navigationController?.popToViewController(editImageViewController!.showAllImageController, animated: true)
+            _ = navigationController?.popToViewController(editImageViewController!.showAllImageController, animated: true)
         }else{
-            navigationController?.popViewController(animated: false)
+            _ = navigationController?.popViewController(animated: false)
         }
         
     }
@@ -219,29 +215,12 @@ class DistributeController: UIViewController,UITextViewDelegate,UIScrollViewDele
 
     }
     
-    func labelString()->String {
-        var labelString = "["
-        for iv in editImageViewController!.editedImageViewArr{
-            for lv in iv.labelViewArr {
-                if lv.texts[0] != "" || lv.texts[1] != "" {
-                    labelString.append("{")
-                    labelString = labelString + "'p':'" + lv.texts[0] + "',"
-                    labelString = labelString + "'c':'" + lv.texts[1] + "'},"
-                }
-            }
-        }
-        
-        if labelString[labelString.characters.index(before: labelString.endIndex)] == "," {
-            labelString.remove(at: labelString.characters.index(before: labelString.endIndex))
-        }
-        labelString.append("]")
-        print("labelString: \(labelString)")
-        return labelString
-    }
     
     func distributeToServer(){
         
     }
+    
+    
     func dismiss(_ timer:Timer){
         (timer.userInfo as! UIAlertController).dismiss(animated: true, completion: nil)
     }
